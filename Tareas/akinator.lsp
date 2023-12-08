@@ -1,34 +1,120 @@
-(defparameter *nodes*
-    '(
-        (living-room (you are in the living-room. a wizard is snoring loudly on the couch.))
-        (garden (you are in a beautiful garden. there is a well in front of you.))
-        (attic (you are in the attic. there is a giant welding torch in the corner.))
-    )
-)
-
-
-(defun busca (lista)
-    (setq cuarto (caar lista))
-    (format t "tu cuarto es ~d ? (1: si | 0: no): " cuarto)
-    (setq lectura (read))
-
-
-    (if (caadr lista) ; SI NO ESTÁ VACIA 
-        (format t "que rollo ~d " (caadr lista))
-        ; (format t "no se hajaja ~d " (caadr lista))
-    )
-
-    (if (caadr lista) ; SI NO ESTÁ VACIA 
-        (cond
-            ( (eq lectura 0)
-                (if lista
-                    (busca (cdr lista))
-                )
-            )
-            ( (eq lectura 1)
-                (cdr (assoc cuarto lista))
-            )
+(defparameter *informacion*  
+  '(realidad
+    (actual
+     (espanol
+        (creador
+        (masculino)
+        (femenino)
         )
+        (figura historica
+        (masculino)
+        (femenino)
+        )
+     )
+     (aleman
+        (creador
+        (masculino)
+        (femenino)
+        )
+        (figura historica
+        (masculino)
+        (femenino)
+        )
+     )
+     (canadiense
+        (figura historica
+        (masculino)
+        (femenino)
+        )
+     )
     )
-    
+
+    (pasado
+      (espanol
+        (creador
+        (masculino)
+        (femenino)
+        )
+        (figura historica
+        (masculino)
+        (femenino)
+        )
+     )
+     (aleman
+        (creador
+        (masculino)
+        (femenino)
+        )
+        (figura historica
+        (masculino)
+        (femenino)
+        )
+     )
+     (canadiense
+        (figura historica
+        (masculino)
+        (femenino)
+        )
+     )  
+    )
+  )
+
+  (ficticio
+    (juego
+      (accion
+       (GuerraFutura
+        (masculino
+         (Comandante Rayo)
+        )
+        (femenino
+         (Lara Spectro)
+        )
+        (criatura
+         (Escuadron de lobos)
+        )
+       )
+      )
+      (estrategia
+       (BatallaMitica
+        (masculino
+         (Thor Loki)
+        )
+        (femenino
+         (Freya Sif)
+        )
+        (criatura
+         (Fenrir Jormungandr)
+        )
+       )
+       (Conquista
+        (masculino)
+        (femenino)
+        (criatura)
+       )
+      )
+      (aventura
+       (Exploradores
+        (masculino)
+        (femenino)
+        (criatura)
+       )
+       (Creadores
+        (masculino)
+        (femenino)
+        (criatura)
+       )
+      )   
+    )
+    (animacion
+     (masculino)
+     (femenino)
+     (criatura)
+    )  
+  )
 )
+
+; Código en LISP
+
+; *informacion* Imprime todo el nodo
+;(assoc 'alto (assoc 'realidad *informacion*))
+;(assoc 'alto (cdr (assoc 'realidad *informacion*)))
